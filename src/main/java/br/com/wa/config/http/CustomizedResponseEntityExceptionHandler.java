@@ -1,12 +1,7 @@
 package br.com.wa.config.http;
 
-import static org.springframework.http.HttpStatus.BAD_REQUEST;
-import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-
+import br.com.wa.http.domain.response.DefaultResponse;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -21,8 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import br.com.wa.http.domain.response.DefaultResponse;
-import lombok.extern.slf4j.Slf4j;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import static org.springframework.http.HttpStatus.BAD_REQUEST;
+import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
 
 @ControllerAdvice
 @RestController
@@ -89,9 +88,9 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
     }
 
     private void log(Exception ex, HttpStatus httpStatus) {
-        if(httpStatus.is4xxClientError()){
+        if (httpStatus.is4xxClientError()) {
             log.warn(ex.getMessage(), ex);
-        }else{
+        } else {
             log.error(ex.getMessage(), ex);
         }
     }

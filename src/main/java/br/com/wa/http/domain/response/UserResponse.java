@@ -5,12 +5,13 @@ import lombok.Getter;
 import lombok.Setter;
 
 public class UserResponse extends DefaultResponse {
-	
-	public UserResponse(User user) {
-		this.user = user;
-	}
-	
-	@Getter @Setter
-	private User user;
+
+    @Getter
+    @Setter
+    private User user;
+
+    public UserResponse(User user) {
+        this.user = user;
+    }
 
 }

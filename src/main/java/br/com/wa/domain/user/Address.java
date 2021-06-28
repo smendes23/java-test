@@ -8,6 +8,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Address {
-	private String street;
-	private String postalCode;
+    private String street;
+    private String postalCode;
 }
